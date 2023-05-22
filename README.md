@@ -5,7 +5,7 @@
 - pyenvとpyenv-virtualenvを使用します
 
 ```shell!
-cd/path/to/trash-bot-kun
+cd　/path/to/trash-bot-kun
 pyenv virtualenv 3.9.9 trash-bot-kun
 pyenv local trash-bot-kun
 

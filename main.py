@@ -80,6 +80,8 @@ def main(prog: Optional[str] = None):
         word = args.saturday
     elif day_of_week == 6:
         word = args.sunday
+    else:
+        raise ValueError("存在しない曜日が指定されています")
 
     client = WebClient(token=os.environ["TRASH_BOT_KUN_SLACK_API"])
 

@@ -35,9 +35,4 @@ jobs:
         SECRET_THURSDAY: ${( secrets.SECRET_THURSDAY )}
         SECRET_FRIDAY: ${( secrets.SECRET_FRIDAY )}
       run: |
-        python main.py \
-          --monday ${SECRET_MONDAY} \
-          --tuesday ${SECRET_TUESDAY} \
-          --wednesday ${SECRET_WEDNESDAY} \
-          --thursday ${SECRET_THURSDAY} \
-          --friday ${SECRET_FRIDAY}  
+        python main.py --monday ${SECRET_MONDAY} --tuesday ${SECRET_TUESDAY} --wednesday ${SECRET_WEDNESDAY} --thursday ${SECRET_THURSDAY} --friday ${SECRET_FRIDAY}

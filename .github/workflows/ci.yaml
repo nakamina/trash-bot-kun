@@ -26,12 +26,10 @@ jobs:
 
     - name: Run bot
       env:
-        SECRET_MONDAY: ${( secrets.SECRET_MONDAY )}
-        SECRET_TUESDAY: ${( secrets.SECRET_TUESDAY )}
-        SECRET_WEDNESDAY: ${( secrets.SECRET_WEDNESDAY )}
-        SECRET_THURSDAY: ${( secrets.SECRET_THURSDAY )}
-        SECRET_FRIDAY: ${( secrets.SECRET_FRIDAY )}
+        SECRET_MONDAY: ${{ secrets.SECRET_MONDAY }}
+        SECRET_TUESDAY: ${{ secrets.SECRET_TUESDAY }}
+        SECRET_WEDNESDAY: ${{ secrets.SECRET_WEDNESDAY }}
+        SECRET_THURSDAY: ${{ secrets.SECRET_THURSDAY }}
+        SECRET_FRIDAY: ${{ secrets.SECRET_FRIDAY }}
       run: |
-        echo ${SECRET_MONDAY}
-
         python main.py --monday ${SECRET_MONDAY} --tuesday ${SECRET_TUESDAY} --wednesday ${SECRET_WEDNESDAY} --thursday ${SECRET_THURSDAY} --friday ${SECRET_FRIDAY}

@@ -86,12 +86,16 @@ def main(prog: Optional[str] = None):
     client = WebClient(token=os.environ["TRASH_BOT_KUN_SLACK_API"])
 
     try:
-        response = client.chat_postMessage(channel="#test-trash-bot-kun", text=word)
+        channel_name = "#test-trash-bot-kun"
+        response = client.chat_postMessage(channel=channel_name, text=word)
         assert response["message"]["text"] == word
+        print(f"チャンネル名: {channel_name} にごみ捨てのメッセージ: {word} を送信しました")
+
     except SlackApiError as e:
         # You will get a SlackApiError if "ok" is False
         assert e.response["ok"] is False
-        assert e.response["error"]  # str like 'invalid_auth', 'channel_not_found'
+        assert e.response["error"]
+        # str like 'invalid_auth', 'channel_not_found'
         print(f"Got an error:{e.response['error']}")
 
 

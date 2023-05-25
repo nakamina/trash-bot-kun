@@ -1,6 +1,10 @@
 import argparse
 import datetime
+import os
 from typing import Optional
+
+from slack_sdk import WebClient
+from slack_sdk.errors import SlackApiError
 
 
 def parse_args(prog: Optional[str] = None) -> argparse.Namespace:
@@ -63,19 +67,36 @@ def main(prog: Optional[str] = None):
     day_of_week = today.weekday()
 
     if day_of_week == 0:
-        print(args.monday)
+        word = args.monday
     elif day_of_week == 1:
-        print(args.tuesday)
+        word = args.tuesday
     elif day_of_week == 2:
-        print(args.wednesday)
+        word = args.wednesday
     elif day_of_week == 3:
-        print(args.thursday)
+        word = args.thursday
     elif day_of_week == 4:
-        print(args.friday)
+        word = args.friday
     elif day_of_week == 5:
-        print(args.saturday)
+        word = args.saturday
     elif day_of_week == 6:
-        print(args.sunday)
+        word = args.sunday
+    else:
+        raise ValueError("存在しない曜日が指定されています")
+
+    client = WebClient(token=os.environ["TRASH_BOT_KUN_SLACK_API"])
+
+    try:
+        channel_name = "#test-trash-bot-kun"
+        response = client.chat_postMessage(channel=channel_name, text=word)
+        assert response["message"]["text"] == word
+        print(f"チャンネル名: {channel_name} にごみ捨てのメッセージ: {word} を送信しました")
+
+    except SlackApiError as e:
+        # You will get a SlackApiError if "ok" is False
+        assert e.response["ok"] is False
+        assert e.response["error"]
+        # str like 'invalid_auth', 'channel_not_found'
+        print(f"Got an error:{e.response['error']}")
 
 
 if __name__ == "__main__":

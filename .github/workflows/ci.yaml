@@ -31,5 +31,6 @@ jobs:
         SECRET_WEDNESDAY: ${{ secrets.SECRET_WEDNESDAY }}
         SECRET_THURSDAY: ${{ secrets.SECRET_THURSDAY }}
         SECRET_FRIDAY: ${{ secrets.SECRET_FRIDAY }}
+        TRASH_BOT_KUN_SLACK_API: ${{ secrets.TRASH_BOT_KUN_SLACK_API }}
       run: |
         poetry run python main.py --monday ${SECRET_MONDAY} --tuesday ${SECRET_TUESDAY} --wednesday ${SECRET_WEDNESDAY} --thursday ${SECRET_THURSDAY} --friday ${SECRET_FRIDAY}

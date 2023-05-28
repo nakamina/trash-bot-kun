@@ -2,6 +2,8 @@ name: Trash-Bot-kun
 
 on:
   workflow_dispatch:
+  schedule:
+    cron:"0 22*** "
   push:
     branches: [ "main" ]
   pull_request:

@@ -20,7 +20,7 @@ poetry install
 
 - 環境変数にSlackのAPIを設定します
 ```shell
-export "TRASH_BOT_KUN_SLACK_API" = "☓☓☓☓☓☓☓☓"
+export TRASH_BOT_KUN_SLACK_API = "☓☓☓☓☓☓☓☓"
 ```
 
 ## 動かし方

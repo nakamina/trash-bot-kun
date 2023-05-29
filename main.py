@@ -1,7 +1,8 @@
 import argparse
-import datetime
 import os
+from datetime import datetime
 from typing import Optional
+from zoneinfo import ZoneInfo
 
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
@@ -63,7 +64,8 @@ def parse_args(prog: Optional[str] = None) -> argparse.Namespace:
 
 def main(prog: Optional[str] = None):
     args = parse_args(prog=prog)
-    today = datetime.date.today()
+    # 時間がUTCになっているので、日本時間に修正する
+    today = datetime.now(ZoneInfo("Asia/Tokyo"))
     day_of_week = today.weekday()
 
     if day_of_week == 0:

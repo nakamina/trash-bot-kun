@@ -3,9 +3,9 @@ name: cron
 on:
   workflow_dispatch:
   # 日本時間は設定したい時刻-9hとする
-  # 今回は、午前8:00に設定
+  # 今回は、午前19:30に設定
   schedule:
-    - cron: '0 10 * * *'
+    - cron: '40 10 * * *'
 
 jobs:
   notify:

@@ -19,5 +19,9 @@ poetry install
 ```
 
 ## 動かし方
+```shell
+poetry run python main.py --monday 'MONDAY' --tuesday 'TUESDAY' --wednesday 'WEDNESDAY' --thursday 'THURSDAY' --friday 'FRIDAY'
+```
+
 
 

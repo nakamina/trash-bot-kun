@@ -19,9 +19,18 @@ poetry install
 ```
 
 ## 動かし方
+
+- 以下のコマンドを実行します
+
 ```shell
+# 大文字の曜日部分には登録するゴミの種類を入力
+# MONDAY:可燃ごみ,TUESDAY:不燃語ごみ...など
+
+poetry run python main.py --monday 'MONDAY' --tuesday 'TUESDAY' --wednesday 'WEDNESDAY' --thursday 'THURSDAY' --friday 'FRIDAY'　--saturday 'SATURDAY' --sunday 'SUNDAY'
+
+# 土曜日と日曜日は未入力でも実行される
+
 poetry run python main.py --monday 'MONDAY' --tuesday 'TUESDAY' --wednesday 'WEDNESDAY' --thursday 'THURSDAY' --friday 'FRIDAY'
+
 ```
-
-
-
+- Slackへ通知が届く

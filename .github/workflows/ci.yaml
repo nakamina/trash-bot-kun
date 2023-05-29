@@ -6,10 +6,6 @@ on:
   # 今回は、午前8:00に設定
   schedule:
     - cron: '0 10 * * *'
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   notify:

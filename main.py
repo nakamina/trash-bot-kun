@@ -1,6 +1,6 @@
 import argparse
-import datetime
 import os
+from datetime import datetime
 from typing import Optional
 from zoneinfo import ZoneInfo
 
